@@ -1,32 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <!--router-view 不能缺少否则以为是路由组件不跳转-->
     <router-view />
+    <FooterGuide v-show="$route.meta.showFooter"></FooterGuide>
   </div>
 </template>
+<script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+import FooterGuide from "./components/FooterGuide/FooterGuide.vue";
 
-#nav {
-  padding: 30px;
+export default {
+  name: "App",
+  components: {
+    FooterGuide
+  },
+  data () {
+    return {
+    };
+  }
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+</script>
+<style lang="stylus" rel="stylesheet/stylus">
+.app
+  width 100%
+  height 100%
+  background #f5f5f5
 </style>
